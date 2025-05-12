@@ -1,0 +1,27 @@
+import mysql.connector as m1
+
+mycon-m1.connect(host="localhost", user="root", password="system", database="Final_Task")
+
+try:
+
+if mycon.is_connected():
+
+print("Connection to database established")
+
+x=mycon.cursor()
+
+sql="select * from student"
+
+x.execute(sql)
+
+data=x.fetchmany (3)
+
+for y in data:
+
+print(y)
+
+except:
+
+print("Error")
+
+mycon.close()
