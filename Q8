@@ -1,0 +1,29 @@
+import mysql.connector as m1
+
+mycon-m1.connect(host="localhost", user="root", password="system", database="Final_Task")
+
+try:
+
+if mycon.is_connected():
+
+print("Connection to database established")
+
+x=mycon.cursor()
+
+roll1=int(input("Enter Roll"))
+
+sql="delete from student WHERE roll=%s"
+
+values=(roll1,)
+
+x.execute(sql, values)
+
+print("successfully deleted data")
+
+mycon.commit()
+
+except:
+
+print("Error")
+
+mycon.close()
