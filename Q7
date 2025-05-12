@@ -1,0 +1,33 @@
+import mysql.connector as m1
+
+mycon=m1.connect(host="localhost", user="root", password="system", database="Final_Task")
+
+try:
+
+if mycon.is_connected():
+
+print("Connection to database established")
+
+x=mycon.cursor()
+
+roll1=int(input("Enter Roll"))
+
+name1=input("Enter Name")
+
+marks1=float(input("Enter Marks"))
+
+sql = "UPDATE student SET name=%s, marks=%s WHERE roll=%s"
+
+values=(name1, marks1,roll1)
+
+x.execute(sql,values)
+
+print("successfully update data")
+
+mycon.commit()
+
+except:
+
+print("Error")
+
+mycon.close()
