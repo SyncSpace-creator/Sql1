@@ -1,0 +1,25 @@
+import mysql.connector as m1
+
+mycon=m1.connect(host="localhost", user="root",password="system", database="Final_Task")
+
+try:
+
+if mycon.is_connected():
+
+print("Connection to database established")
+
+x=mycon.cursor()
+
+sql=" create table student(roll int primary key, name varchar(30), marks float)"
+
+x.execute(sql)
+
+print("Table Created")
+
+mycon.commit()
+
+except:
+
+print("Error")
+
+mycon.close()
